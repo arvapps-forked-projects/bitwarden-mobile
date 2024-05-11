@@ -20,6 +20,9 @@ namespace Bit.App.Utilities.AccountManagement
         private readonly IMessagingService _messagingService;
         private readonly IWatchDeviceService _watchDeviceService;
         private readonly IConditionedAwaiterManager _conditionedAwaiterManager;
+#if ANDROID
+        private LazyResolve<IFido2MakeCredentialConfirmationUserInterface> _fido2MakeCredentialConfirmationUserInterface = new LazyResolve<IFido2MakeCredentialConfirmationUserInterface>();
+#endif
 
         Func<AppOptions> _getOptionsFunc;
         private IAccountsManagerHost _accountsManagerHost;
@@ -60,7 +63,9 @@ namespace Bit.App.Utilities.AccountManagement
         public async Task StartDefaultNavigationFlowAsync(Action<AppOptions> appOptionsAction)
         {
             await _conditionedAwaiterManager.GetAwaiterForPrecondition(AwaiterPrecondition.EnvironmentUrlsInited);
-
+#if ANDROID
+            await _conditionedAwaiterManager.GetAwaiterForPrecondition(AwaiterPrecondition.AndroidWindowCreated);
+#endif
             appOptionsAction(Options);
 
             await NavigateOnAccountChangeAsync();
@@ -69,6 +74,9 @@ namespace Bit.App.Utilities.AccountManagement
         public async Task NavigateOnAccountChangeAsync(bool? isAuthed = null)
         {
             await _conditionedAwaiterManager.GetAwaiterForPrecondition(AwaiterPrecondition.EnvironmentUrlsInited);
+#if ANDROID
+            await _conditionedAwaiterManager.GetAwaiterForPrecondition(AwaiterPrecondition.AndroidWindowCreated);
+#endif
 
             // TODO: this could be improved by doing chain of responsability pattern
             // but for now it may be an overkill, if logic gets more complex consider refactoring it
@@ -77,7 +85,7 @@ namespace Bit.App.Utilities.AccountManagement
             if (authed)
             {
                 if (await _vaultTimeoutService.IsLoggedOutByTimeoutAsync() ||
-                    await _vaultTimeoutService.ShouldLogOutByTimeoutAsync())
+                  await _vaultTimeoutService.ShouldLogOutByTimeoutAsync())
                 {
                     // TODO implement orgIdentifier flow to SSO Login page, same as email flow below
                     // var orgIdentifier = await _stateService.GetOrgIdentifierAsync();
@@ -94,6 +102,19 @@ namespace Bit.App.Utilities.AccountManagement
                 else if (Options.FromAutofillFramework && Options.SaveType.HasValue)
                 {
                     _accountsManagerHost.Navigate(NavigationTarget.AddEditCipher);
+                }
+#if ANDROID
+                else if (_fido2MakeCredentialConfirmationUserInterface.Value.IsConfirmingNewCredential)
+                {
+                    // If we are already confirming a credential we don't need to navigate again.
+                    // This could happen when switching accounts for example.
+                    return;
+                }
+#endif
+                else if (Options.FromFido2Framework)
+                {
+                    var deviceActionService = Bit.Core.Utilities.ServiceContainer.Resolve<IDeviceActionService>();
+                    deviceActionService.ExecuteFido2CredentialActionAsync(Options).FireAndForget();
                 }
                 else if (Options.Uri != null)
                 {
@@ -244,6 +265,10 @@ namespace Bit.App.Utilities.AccountManagement
                 await _accountsManagerHost.UpdateThemeAsync();
                 _watchDeviceService.SyncDataToWatchAsync().FireAndForget();
                 _messagingService.Send(AccountsManagerMessageCommands.ACCOUNT_SWITCH_COMPLETED);
+                if (Options != null)
+                {
+                    Options.HasUnlockedInThisTransaction = false;
+                }
             });
         }
 

@@ -371,7 +371,7 @@
     <comment>Label for a username.</comment>
   </data>
   <data name="ValidationFieldRequired" xml:space="preserve">
-    <value>Het {0}-veld is vereist.</value>
+    <value>Vul het veld {0} in.</value>
     <comment>Validation message for when a form field is left blank and is required to be entered.</comment>
   </data>
   <data name="ValueHasBeenCopied" xml:space="preserve">
@@ -420,6 +420,9 @@
   </data>
   <data name="AutofillService" xml:space="preserve">
     <value>Dienst Automatisch aanvullen</value>
+  </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Bitwarden instellen als je passkey-provider in apparaatinstellingen.</value>
   </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Dubbelzinnige tekens vermijden</value>
@@ -946,7 +949,7 @@ Het scannen gebeurt automatisch.</value>
     <value>Je kunt deze functie pas gebruiken als je je encryptiesleutel bijwerkt.</value>
   </data>
   <data name="EncryptionKeyMigrationRequiredDescriptionLong" xml:space="preserve">
-    <value>Encryption key migration required. Please login through the web vault to update your encryption key.</value>
+    <value>Migratie van de encryptiesleutel vereist. Login via de website om je encryptiesleutel bij te werken.</value>
   </data>
   <data name="LearnMore" xml:space="preserve">
     <value>Meer informatie</value>
@@ -996,7 +999,7 @@ Het scannen gebeurt automatisch.</value>
     <value>Beveiligingscode kopiëren</value>
   </data>
   <data name="Number" xml:space="preserve">
-    <value>Kaartummer</value>
+    <value>Kaartnummer</value>
   </data>
   <data name="SecurityCode" xml:space="preserve">
     <value>Beveiligingscode</value>
@@ -1190,6 +1193,9 @@ Het scannen gebeurt automatisch.</value>
   </data>
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
+  </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>We konden het instellingenmenu voor Android credential provider niet automatisch voor je openen. Je kunt handmaltig navigeren naar de credential provider instellingen vanaf Android Instellingen &gt; Systeem &gt; Wachtwoorden &amp; accounts &gt; Wachtwoorden, passkeys en datadiensten.</value>
   </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Het instellingenmenu Android Automatisch aanvullen is niet geopend. Je kunt het menu handmatig openen via Android-instellingen &gt; Systeem &gt; Taal en invoer &gt; Geavanceerd &gt; Automatische aanvuldienst.</value>
@@ -1814,6 +1820,9 @@ Het scannen gebeurt automatisch.</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden vraagt om aandacht - Activeer "Bovenop weergeven" in "Bitwarden Instellingen - Automatisch aanvullen".</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Passkey-beheer</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Automatisch aanvullen</value>
@@ -2623,22 +2632,22 @@ Wilt u naar dit account wisselen?</value>
     <value>Huidig hoofdwachtwoord</value>
   </data>
   <data name="LoggedIn" xml:space="preserve">
-    <value>Logged in!</value>
+    <value>Ingelogd!</value>
   </data>
   <data name="ApproveWithMyOtherDevice" xml:space="preserve">
-    <value>Approve with my other device</value>
+    <value>Goedkeuren met mijn andere apparaat</value>
   </data>
   <data name="RequestAdminApproval" xml:space="preserve">
-    <value>Request admin approval</value>
+    <value>Goedkeuring van beheerder vragen</value>
   </data>
   <data name="ApproveWithMasterPassword" xml:space="preserve">
-    <value>Approve with master password</value>
+    <value>Goedkeuren met hoofdwachtwoord</value>
   </data>
   <data name="TurnOffUsingPublicDevice" xml:space="preserve">
-    <value>Turn off using a public device</value>
+    <value>Uitschakelen met een openbaar apparaat</value>
   </data>
   <data name="RememberThisDevice" xml:space="preserve">
-    <value>Remember this device</value>
+    <value>Dit apparaat onthouden</value>
   </data>
   <data name="Passkey" xml:space="preserve">
     <value>Passkey</value>
@@ -2668,7 +2677,7 @@ Wilt u naar dit account wisselen?</value>
     <value>Hulptekst hoofdwachtwoord opnieuw vragen</value>
   </data>
   <data name="UnlockingMayFailDueToInsufficientMemoryDecreaseYourKDFMemorySettingsToResolve" xml:space="preserve">
-    <value>Unlocking may fail due to insufficient memory. Decrease your KDF memory settings or set up biometric unlock to resolve.</value>
+    <value>Ontgrendelen kan mislukken als er onvoldoende geheugen is. Verminder je KDF-geheugeninstellingen of stel biometrische ontgrendeling in om dit op te lossen.</value>
   </data>
   <data name="InvalidAPIKey" xml:space="preserve">
     <value>Ongeldige API-sleutel</value>
@@ -2677,22 +2686,22 @@ Wilt u naar dit account wisselen?</value>
     <value>Ongeldige API-token</value>
   </data>
   <data name="AdminApprovalRequested" xml:space="preserve">
-    <value>Admin approval requested</value>
+    <value>Goedkeuring van beheerder aangevraagd</value>
   </data>
   <data name="YourRequestHasBeenSentToYourAdmin" xml:space="preserve">
-    <value>Your request has been sent to your admin.</value>
+    <value>Je verzoek is naar je beheerder verstuurd.</value>
   </data>
   <data name="YouWillBeNotifiedOnceApproved" xml:space="preserve">
-    <value>You will be notified once approved. </value>
+    <value>Je krijgt een melding zodra je bent goedgekeurd.</value>
   </data>
   <data name="TroubleLoggingIn" xml:space="preserve">
-    <value>Trouble logging in?</value>
+    <value>Problemen met inloggen?</value>
   </data>
   <data name="LoggingInAsX" xml:space="preserve">
-    <value>Logging in as {0}</value>
+    <value>Inloggen als {0}</value>
   </data>
   <data name="VaultTimeoutActionChangedToLogOut" xml:space="preserve">
-    <value>Vault timeout action changed to log out</value>
+    <value>Kluis time-out actie gewijzigd naar uitloggen</value>
   </data>
   <data name="BlockAutoFill" xml:space="preserve">
     <value>Automatisch aanvullen blokkeren</value>
@@ -2738,16 +2747,16 @@ Wilt u naar dit account wisselen?</value>
     <value>Meerdere URIs in één keer bewerken kan niet</value>
   </data>
   <data name="LoginApproved" xml:space="preserve">
-    <value>Login approved</value>
+    <value>Inloggen goedgekeurd</value>
   </data>
   <data name="LogInWithDeviceMustBeSetUpInTheSettingsOfTheBitwardenAppNeedAnotherOption" xml:space="preserve">
-    <value>Log in with device must be set up in the settings of the Bitwarden app. Need another option?</value>
+    <value>Je moet Inloggen met apparaat instellen in de instellingen van de Bitwarden-app. Behoefte aan een andere mogelijkheid?</value>
   </data>
   <data name="LogInWithDevice" xml:space="preserve">
-    <value>Log in with device</value>
+    <value>Inloggen met apparaat</value>
   </data>
   <data name="LoggingInOn" xml:space="preserve">
-    <value>Logging in on</value>
+    <value>Inloggen op</value>
   </data>
   <data name="Vault" xml:space="preserve">
     <value>Kluis</value>
@@ -2798,6 +2807,9 @@ Wilt u naar dit account wisselen?</value>
   <data name="XHours" xml:space="preserve">
     <value>{0} uur</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Gebruik Bitwarden voor het opslaan van nieuwe passkeys en inloggen met passkeys die zijn opgeslagen in je kluis.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Het Android Autofill Framework helpt het het invullen van inloggegevens in andere apps op je apparaat.</value>
   </data>
@@ -2825,6 +2837,9 @@ Wilt u naar dit account wisselen?</value>
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Doorgaan naar de app store?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Doorgaan naar apparaatinstellingen?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Maak je account veiliger met het instellen van tweestapsaanmelding in de Bitwarden-webapp.</value>
@@ -2862,18 +2877,131 @@ Wilt u naar dit account wisselen?</value>
     <comment>To state the date/time in which the cipher was created: Created 03/21/2023, 09:25 AM. First parameter is the date and the second parameter is the time.</comment>
   </data>
   <data name="TooManyAttempts" xml:space="preserve">
-    <value>Too many attempts</value>
+    <value>Te veel pogingen</value>
   </data>
   <data name="AccountLoggedOutBiometricExceeded" xml:space="preserve">
-    <value>Account logged out.</value>
+    <value>Account uitgelogd.</value>
   </data>
   <data name="YourOrganizationPermissionsWereUpdatedRequeringYouToSetAMasterPassword" xml:space="preserve">
-    <value>Your organization permissions were updated, requiring you to set a master password.</value>
+    <value>De organisatierechten zijn bijgewerkt, je moet een hoofdwachtwoord instellen.</value>
   </data>
   <data name="YourOrganizationRequiresYouToSetAMasterPassword" xml:space="preserve">
-    <value>Your organization requires you to set a master password.</value> 
+    <value>Je organisatie vereist dat je een hoofdwachtwoord instelt.</value> 
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Stel een ontgrendelingsmethode in om je kluis time-out actie te wijzigen.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Kies een login om deze passkey bij op te slaan</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Passkey als nieuwe login opslaan</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Passkey opslaan</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Passkeys voor {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Wachtwoorden voor {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Passkey overschrijven?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Dit item heeft al een passkey. Weet je zeker dat je de huidige passkey wilt overschrijven?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Jouw account vereist Duo-tweestapsaanmelding. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Volg de stappen van Duo om in te loggen.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Duo starten</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Verificatie vereist door {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Deze actie vereist verificatie. Stel een ontgrendelingsmethode in Bitwarden in om door te gaan.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Fout bij het aanmaken van passkey</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Fout bij het lezen van passkey</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Er is een fout opgetreden bij het maken van een passkey voor {0}. Probeer het later opnieuw.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Er is een fout opgetreden bij het lezen van je passkey voor {0}. Probeer het later opnieuw.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Identiteit controleren...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Wachtwoorden</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Onbekend account</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Automatisch invullen instellen</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Overal je wachtwoorden en passkeys onder handbereik!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>Bitwarden als voorkeursprovider instellen in de iOS-instellingen voor het instellen van automatisch invullen van wachtwoorden en beheren van passkeys.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Ga naar Instellingen &gt; Wachtwoorden &gt; Wachtwoordopties</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Automatisch invullen inschakelen</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Selecteer "Bitwarden" om te gebruiken voor wachtwoorden en passkeys</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Je passkeys worden bewaard in je Bitwarden-kluis</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Je passkey wordt bewaard in je Bitwarden-kluis voor {0}</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Niet-toegewezen organisatie-items zijn niet meer zichtbaar in de weergave van alle kluisjes en alleen toegankelijk via de Admin Console. Je kunt deze items in het Admin Console aan een collectie toewijzen om ze zichtbaar te maken.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>Vanaf 2 mei 2024 zijn niet-toegewezen organisatie-items niet meer zichtbaar in de weergave van alle kluisjes en alleen toegankelijk via de Admin Console. Je kunt deze items in het Admin Console aan een collectie toewijzen om ze zichtbaar te maken.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Herinner me later</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Kennisgeving</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Passkeys zijn niet ondersteund voor deze app</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Passkey operation failed because browser is not privileged</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Passkey operation failed because browser signature does not match</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Passkey operation failed because of missing asset links</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Passkey operation failed because app not found in asset links</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Passkey operation failed because app could not be verified</value>
   </data>
 </root>

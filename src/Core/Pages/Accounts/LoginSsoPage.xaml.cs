@@ -21,6 +21,7 @@ namespace Bit.App.Pages
             InitializeComponent();
             _vm = BindingContext as LoginSsoPageViewModel;
             _vm.Page = this;
+            _vm.FromIosExtension = _appOptions?.IosExtension ?? false;
             _vm.StartTwoFactorAction = () => MainThread.BeginInvokeOnMainThread(async () => await StartTwoFactorAsync());
             _vm.StartSetPasswordAction = () =>
                 MainThread.BeginInvokeOnMainThread(async () => await StartSetPasswordAsync());
@@ -124,7 +125,7 @@ namespace Bit.App.Pages
 
         private async Task StartDeviceApprovalOptionsAsync()
         {
-            var page = new LoginApproveDevicePage();
+            var page = new LoginApproveDevicePage(_appOptions);
             await Navigation.PushModalAsync(new NavigationPage(page));
         }
 

@@ -172,7 +172,7 @@
     <comment>Message shown when interacting with the server</comment>
   </data>
   <data name="DoYouReallyWantToDelete" xml:space="preserve">
-    <value>Vuoi davvero eliminarlo? Questa operazione non può essere annullata.</value>
+    <value>Sei sicuro di volerlo eliminare? Questa operazione è irreversibile.</value>
     <comment>Confirmation alert message when deleteing something.</comment>
   </data>
   <data name="Edit" xml:space="preserve">
@@ -193,10 +193,10 @@
     <value>Contattaci</value>
   </data>
   <data name="EmailUsDescription" xml:space="preserve">
-    <value>Mandaci un'email per ottenere aiuto o lasciare un feedback</value>
+    <value>Inviaci un'email per ottenere aiuto o lasciare un feedback.</value>
   </data>
   <data name="EnterPIN" xml:space="preserve">
-    <value>Digita il tuo PIN.</value>
+    <value>Inserisci il tuo PIN.</value>
   </data>
   <data name="Favorites" xml:space="preserve">
     <value>Preferiti</value>
@@ -420,6 +420,9 @@
   </data>
   <data name="AutofillService" xml:space="preserve">
     <value>Servizio di riempimento automatico</value>
+  </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Imposta Bitwarden come il tuo fornitore delle passkey nelle impostazioni del dispositivo.</value>
   </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Evita caratteri ambigui</value>
@@ -1190,6 +1193,9 @@
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
   </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Non siamo riusciti ad aprire automaticamente il menu delle impostazioni del fornitore di credenziali di Android per te. Puoi raggiungere il menu delle impostazioni del fornitore di credenziali manualmente da Impostazioni Android &gt; Sistema &gt; Password e account &gt; Password, passkey, e servizi dati.</value>
+  </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Non siamo riusciti ad aprire le impostazioni del riempimento automatico di Android per te. Puoi navigare manualmente nelle impostazioni di riempimento automatico dalle Impostazioni di Android &gt; Cerca Impostazioni &gt; Cerca "Password e autofill"</value>
   </data>
@@ -1814,6 +1820,9 @@
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden richiede la tua attenzione - Abilita "Mostra sopra altre app" in "Servizi di riempimento automatico" dalle impostazioni di Bitwarden</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Gestione delle passkey</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Servizi di riempimento automatico</value>
@@ -2798,6 +2807,9 @@ Vuoi passare a questo account?</value>
   <data name="XHours" xml:space="preserve">
     <value>{0} ore</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Usa Bitwarden per salvare nuove passkey ed accedere con le passkey memorizzate nella tua cassaforte.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>La struttura di riempimento automatico di Android è usata per aiutare a inserire le tue credenziali su altre app nel tuo dispositivo.</value>
   </data>
@@ -2825,6 +2837,9 @@ Vuoi passare a questo account?</value>
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Continuare sull'App Store?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Continuare alle Impostazioni del dispositivo?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Rendi il tuo account più sicuro impostando la verifica in due passaggi sul sito web di Bitwarden.</value>
@@ -2875,5 +2890,118 @@ Vuoi passare a questo account?</value>
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Imposta un metodo di sblocco per modificare l'azione timeout cassaforte.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Scegli un elemento in cui salvare questa passkey</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Salva la passkey come nuovo elemento</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Salva passkey</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Passkey per {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Password per {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Sovrascrivi passkey?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Questo elemento contiene già una passkey. Sei sicuro di voler sovrascrivere la passkey corrente?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Per il tuo account è richiesta la verifica in due passaggi DUO. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Segui i passaggi da DUO per finire di accedere.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Avvia DUO</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Verifica richiesta da {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Verifica richiesta per questa azione. Imposta un metodo di sblocco in Bitwarden per continuare.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Errore durante la creazione della passkey</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Errore durante la lettura della passkey</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Si è verificato un problema durante la creazione della passkey per {0}. Riprova più tardi.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Si è verificato un problema durante la lettura della tua passkey per {0}. Riprova più tardi.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Verifica identità...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Account sconosciuto</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Imposta riempimento automatico</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Ottieni accesso immediato alle tue password e passkey!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>Per impostare il riempimento automatico delle password e la gestione delle passkey, imposta Bitwarden come fornitore preferito nelle Impostazioni di iOS.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Vai alle Impostazioni del tuo dispositivo &gt; Password &gt; Opzioni delle Password</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Attiva il riempimento automatico</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Seleziona "Bitwarden" da usare per le password e le passkey</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>La tua passkey sarà salvata nella tua cassaforte di Bitwarden</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>La tua passkey sarà salvata nella tua cassaforte di Bitwarden per {0}</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Gli elementi dell'organizzazione non assegnati non sono più visibili nella visualizzazione Tutte le Cassaforti su tutti i dispositivi e sono ora accessibili solo tramite la Console di amministrazione. Assegna questi elementi ad una raccolta dalla Console di amministrazione per renderli visibili.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>Dal 16 maggio 2024, gli elementi dell'organizzazione non assegnati non saranno più visibili nella visualizzazione Tutte le Cassaforti su tutti i dispositivi e saranno accessibili solo tramite la Console di amministrazione. Assegna questi elementi ad una raccolta dalla Console di amministrazione per renderli visibili.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Ricordamelo più tardi</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Avviso</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Passkey non supportate per questa app</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>L'operazione della passkey non è riuscita perché il browser non dispone dei privilegi necessari</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>L'operazione della passkey non è riuscita perché la firma del browser non corrisponde</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>L'operazione della passkey non è riuscita a causa di collegamenti alle risorse mancanti</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>L'operazione della passkey non è riuscita perché l'app non è stata trovata nei collegamenti alle risorse</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>L'operazione della passkey non è riuscita perché non è stato possibile verificare l'app</value>
   </data>
 </root>

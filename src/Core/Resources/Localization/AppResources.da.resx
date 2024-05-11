@@ -421,6 +421,9 @@
   <data name="AutofillService" xml:space="preserve">
     <value>Autoudfyldningstjeneste</value>
   </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Angiv Bitwarden som aktuel adgangsnøgleudbyder i enhedsindstillingerne.</value>
+  </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Undgå tvetydige tegn</value>
   </data>
@@ -907,7 +910,7 @@ Skanning vil ske automatisk.</value>
     <value>Kopiér TOTP</value>
   </data>
   <data name="CopyTotpAutomaticallyDescription" xml:space="preserve">
-    <value>Har et login en godkendelsesnøgle, så kopiér TOTP-bekræftelseskoden til udklipsholderen, når login auto-udfyldes.</value>
+    <value>Har et login en godkendelsesnøgle, kopiér da TOTP-bekræftelseskoden til udklipsholderen, når login autoudfyldes.</value>
   </data>
   <data name="CopyTotpAutomatically" xml:space="preserve">
     <value>Kopiér TOTP automatisk</value>
@@ -1190,6 +1193,9 @@ Skanning vil ske automatisk.</value>
   </data>
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
+  </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Androids legitimationsudbyderindstillingsmenu kunne ikke åbnes automatisk. Legitimationsudbyderindstillingsmenuen kan tilgås manuelt via Androids Indstillinger &gt; System &gt; Adgangskoder og konti &gt; Adgangskoder, adgangsnøgler og datatjenester.</value>
   </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Vi var ude af stand til automatisk at åbne Android indstillingsmenuen AutoFyld-tjenesten for dig. Du kan manuelt navigere til AutoFyld indstillingsmenuen fra Android Indstillinger &gt; System &gt; Sprog og indtastning &gt; Avanceret &gt; AutoFyld-tjenesten.</value>
@@ -1815,6 +1821,9 @@ Skanning vil ske automatisk.</value>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden behøver tilladelse - Aktivér "Tegn over" i "Autoudfyldtjeneste" i Bitwarden-indstillingerne</value>
   </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Adgangsnøglehåndtering</value>
+  </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Autoudfyldtjeneste</value>
   </data>
@@ -2128,7 +2137,7 @@ Skanning vil ske automatisk.</value>
     <value>Denne organisation har en virksomhedspolitik, der automatisk tilmelder dig til nulstilling af adgangskode. Tilmelding giver organisationsadministratorer mulighed for at skifte din hovedadgangskode.</value>
   </data>
   <data name="VaultTimeoutPolicyInEffect" xml:space="preserve">
-    <value>Dine organisationspolitikker påvirker din boks-timeout. Maksimum tilladte boks-timeout er {0} time(r) og {1} minut(ter)</value>
+    <value>Organisationspolitikkerne har sat den maksimalt tilladte bokstimeout til {0} tim(er) og {1} minut(ter).</value>
   </data>
   <data name="VaultTimeoutPolicyWithActionInEffect" xml:space="preserve">
     <value>Organisationspolitikkerne påvirker boks-timeout. Maks. tilladt boks-timeout er {0} time(r) og {1} minut(ter). Boks-timeout er pt. sat til {2}.</value>
@@ -2354,7 +2363,7 @@ vælg Tilføj TOTP for at gemme nøglen sikkert</value>
     <value>Godkend loginanmodninger</value>
   </data>
   <data name="UseThisDeviceToApproveLoginRequestsMadeFromOtherDevices" xml:space="preserve">
-    <value>Brug denne enhed til at godkende loginanmodninger fra andre enheder.</value>
+    <value>Brug denne enhed til at godkende loginanmodninger fra andre enheder</value>
   </data>
   <data name="AllowNotifications" xml:space="preserve">
     <value>Tillad notifikationer</value>
@@ -2668,7 +2677,7 @@ Vil du skifte til denne konto?</value>
     <value>Hjælp til genanmodning om hovedadgangskode</value>
   </data>
   <data name="UnlockingMayFailDueToInsufficientMemoryDecreaseYourKDFMemorySettingsToResolve" xml:space="preserve">
-    <value>Unlocking may fail due to insufficient memory. Decrease your KDF memory settings or set up biometric unlock to resolve.</value>
+    <value>Oplåsning kan fejle grundet utilstrækkelig hukommelse. Reducér KDF-hukommelsesindstillinger eller opsæt biometrisk oplåsning for at afhjælpe.</value>
   </data>
   <data name="InvalidAPIKey" xml:space="preserve">
     <value>Ugyldig API-nøgle</value>
@@ -2798,6 +2807,9 @@ Vil du skifte til denne konto?</value>
   <data name="XHours" xml:space="preserve">
     <value>{0} timer</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Brug Bitwarden til at gemme nye adgangsnøgler og logge ind med adgangsnøgler gemt i boksen.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Android Autofill Framework bruges til at hjælpe med at udfylde loginoplysninger i andre apps på enheden.</value>
   </data>
@@ -2825,6 +2837,9 @@ Vil du skifte til denne konto?</value>
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Fortsæt til app-butik?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Fortsæt til Enhedsindstillinger?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Øg kontosikkerheden ved at oprette totrins-indlogning i Bitwarden web-appen.</value>
@@ -2875,5 +2890,118 @@ Vil du skifte til denne konto?</value>
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Opsæt en oplåsningsmetode for at ændre Bokstimeouthandlingen.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Vælg et login at gemme denne adgangsnøgle til</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Gem adgangsnøgle som nyt login</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Gem adgangsnøgle</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Adgangsnøgler til {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Adgangskoder til {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Overskriv adgangsnøgle?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Dette emne indeholder allerede en adgangsnøgle. Sikker på, at den aktuelle adgangsnøgle skal overskrives?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Duo-totrinsindlogning kræves for kontoen. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Følg trinnene fra Duo for at færdiggøre indlogningen.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Start Duo</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Bekræftelse kræves af {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Bekræftelse kræves for denne handling. Opsæt en oplåsningsmetode i Bitwarden for at fortsætte.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Fejl under oprettelse af adgangsnøgle</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Fejl under læsning af adgangsnøgle</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Problem med at oprette en adgangsnøgle til {0}. Forsøg igen senere.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Problem med at læse adgangsnøglen til {0}. Forsøg igen senere.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Bekræfter identitet...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Adgangskoder</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Ukendt konto</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Opsæt autoudfyldning</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Få øjeblikkelig adgang til de gemte adgangskoder og -nøgler!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>For at opsætte autoudfyldning af adgangskode og adgangsnøglehåndtering, opsæt Bitwarden som den foretrukne udbyder i iOS-indstillingerne.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Gå til enhedens Indstillinger &gt; Adgangskoder &gt; Adgangskodeindstillinger</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>4. Slå Autoudfyldning til</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Vælg "Bitwarden" til brug for adgangskoder og adgangsnøgler</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Adgangsnøglen gemmes i Bitwarden-boksen</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Adgangsnøglen gemmes i Bitwarden-boksen til {0}</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Utildelte organisationsemner er ikke længere synlige i Alle Bokse-visningen og er kun tilgængelige via Admin-konsollen. Føj disse emner til en samling fra Admin-konsollen for at gøre dem synlige.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>Pr. 16. maj 2024 vil utildelte organisationsemner ikke længere være synlige i Alle Bokse-visningen og vil kun være tilgængelige via Admin-konsollen. Tildel disse emner til en samling via Admin-konsollen for at gøre dem synlige.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Påmind senere</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Varsling</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Adgangsnøgler ikke understøttet til denne app</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Adgangsnøglehandling mislykkedes, da webbrowseren ikke er priviligeret</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Adgangsnøglehandling mislykkedes, da webbrowsersignaturen ikke matcher</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Adgangsnøglehandling mislykkedes grundet manglende aktivlinks</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Adgangsnøglehandling mislykkedes, da appen ikke fandtes i aktivlinks</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Adgangsnøglehandling mislykkedes, da appen ikke kunne bekræftes</value>
   </data>
 </root>

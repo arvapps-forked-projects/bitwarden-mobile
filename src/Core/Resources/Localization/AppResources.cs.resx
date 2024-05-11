@@ -421,6 +421,9 @@
   <data name="AutofillService" xml:space="preserve">
     <value>Služba automatického vyplňování</value>
   </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Nastaví Bitwarden jako poskytovatele přístupového hesla v nastavení zařízení.</value>
+  </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Nepoužívat zaměnitelné znaky</value>
   </data>
@@ -1191,6 +1194,9 @@ Načtení proběhne automaticky.</value>
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
   </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Obrazovku nastavení automatického vyplňování Android se nepodařilo otevřít. Nastavení můžete otevřít ručně z Nastavení systému Android &gt; Systém &gt; Hesla a účty &gt; Hesla, přístupové klíče a datové služby.</value>
+  </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Obrazovku nastavení automatického vyplňování Android se nepodařilo otevřít. Nastavení můžete otevřít ručně z Nastavení systému Android &gt; Systém &gt; Jazyky a zadávání &gt; Rozšířená nastavení &gt; Služba automatického vyplňování.</value>
   </data>
@@ -1814,6 +1820,9 @@ Načtení proběhne automaticky.</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden vyžaduje pozornost – Povolte volbu "Zobrazit přes ostatní aplikace" ve "Službách automatického vyplňování“ v nastavení aplikace Bitwarden</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Správa přístupových klíčů</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Služby automatického vyplňování</value>
@@ -2797,6 +2806,9 @@ Chcete se přepnout na tento účet?</value>
   <data name="XHours" xml:space="preserve">
     <value>{0} hodin</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Použijte Bitwarden pro ukládání nových přístupových klíčů a přihlašování se pomocí přístupových klíčů uložených ve Vašem trezoru.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Android Autofill Framework se používá k vyplnění přihlašovacích údajů do jiných aplikací na Vašem zařízení.</value>
   </data>
@@ -2824,6 +2836,9 @@ Chcete se přepnout na tento účet?</value>
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Pokračovat do obchodu s aplikacemi?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Pokračovat do nastavení zařízení?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Vytvořte svůj účet bezpečnějším nastavením dvoufázového přihlášení ve webové aplikaci Bitwarden.</value>
@@ -2874,5 +2889,118 @@ Chcete se přepnout na tento účet?</value>
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Nastavte volbu odemknutí, abyste změnili časový limit Vašeho trezoru.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Vyberte přihlášení pro uložení tohoto přístupového klíče</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Uložit přístupový klíč jako nové přihlášení</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Uložit přístupový klíč</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Přístupové klíče pro {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Hesla pro {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Přepsat přístupový klíč?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Tato položka již obsahuje přístupový klíč. Jste si jisti, že chcete přepsat aktuální přístupový klíč?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Pro Váš účet je vyžadováno dvoufázové přihlášení DUO. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Postupujte podle kroků od DUO pro dokončení přihlášení.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Spustit DUO</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Je vyžadováno ověření od {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Pro tuto akci je vyžadováno ověření. Pro pokračování nastavte metodu odemknutí v Bitwardenu.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Chyba při vytváření přístupového klíče</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Chyba při čtení přístupového klíče</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Při vytváření přístupového klíče pro {0} došlo k chybě. Zkuste to znovu později.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Při čtení přístupového klíče pro {0} došlo k chybě. Zkuste to znovu později.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Ověřování identity...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Hesla</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Neznámý účet</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Nastavit automatické vyplňování</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Získejte okamžitý přístup ke svým heslům a přístupovým klíčům!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>Pro nastavení automatického vyplňování hesla a správy přístupových klíčů nastavte Bitwarden jako preferovaného poskytovatele v nastavení iOS.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Přejděte do nastavení &gt; Hesla &gt; Volby hesla</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Zapněte volbu "Automatické vyplňování hesel a přístupových klíčů"</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. V sekci "Používat hesla a přístupové klíče z:" zvolte "Bitwarden"</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Váš přístupový klíč bude uložen do Vašeho trezoru na Bitwardenu</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Váš přístupový klíč bude pro {0} uložen do Vašeho trezoru na Bitwardenu</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Nepřiřazené položky organizace již nejsou viditelné ve Vašem zobrazení všech trezorů a jsou nyní přístupné jen v konzoli správce. Přiřaďte tyto položky do kolekce z konzole pro správce, aby byly viditelné.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>Dne 16. května 2024 již nebudou nepřiřazené položky organizace viditelné v zobrazení Všechny trezory a budou přístupné jen prostřednictvím konzoly správce. Přiřaďte tyto položky do kolekce z konzoly pro správce, aby byly viditelné.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Připomenout později</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Upozornění</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Přístupové klíče nejsou pro tuto aplikaci podporovány</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Operace přístupového klíče se nezdařila, protože prohlížeč nemá oprávnění</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Operace přístupového klíče se nezdařila, protože se neshoduje s podpisem prohlížeče</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Operace přístupového klíče selhala z důvodu chybějících odkazů na aktiva</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Operace přístupového klíče se nezdařila, protože v odkazech na aktivum nebyla nalezena aplikace</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Operace přístupového klíče se nezdařila, protože aplikaci nelze ověřit</value>
   </data>
 </root>

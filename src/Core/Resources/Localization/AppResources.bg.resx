@@ -421,6 +421,9 @@
   <data name="AutofillService" xml:space="preserve">
     <value>Услуга за автоматично дописване</value>
   </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Задайте Битуорден за свой доставчик за секретни ключове в настройките на устройството.</value>
+  </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Без нееднозначни знаци</value>
   </data>
@@ -1191,6 +1194,9 @@
   <data name="WindowsHello" xml:space="preserve">
     <value>Идентификация чрез Уиндоус (Windows Hello)</value>
   </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Екранът с настройките за доставчик на идентификационни данни не може да се отвори автоматично. Може да го достигнете през: Настройки → Системни (Общо управление) → Пароли, кодове за достъп и автоматично попълване.</value>
+  </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Екранът за настройките за автоматично дописване не може да се отвори автоматично. Може да го достигнете през: Настройки (Android Settings) → Системни (System) → Езици и вход (Languages and input) → Допълнителни (Advanced) → Услуга за дописване (Autofill service).</value>
   </data>
@@ -1814,6 +1820,9 @@
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Битуорден има нужда от внимание. Отворете „Изобразяване отгоре“ в „Услуга за автоматично дописване“ в настройките му.</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Управление на секретни ключове</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Услуга за автоматично дописване</value>
@@ -2798,6 +2807,9 @@
   <data name="XHours" xml:space="preserve">
     <value>{0} часа</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Използване на Битуорден за запазване на новите секретни ключове и вписване с такива запазени в трезора.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Подсистемата за автоматично попълване на Андроид се използва за попълване на данните за вход в други приложения на устройството.</value>
   </data>
@@ -2825,6 +2837,9 @@
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Продължаване към магазина за приложения?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Продължаване към настройките на устройството?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Подобрете защитата на регистрацията си, като настроите двустепенното удостоверяване в уеб приложението на Битуорден.</value>
@@ -2875,5 +2890,118 @@
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Задайте начин за отключване, за да може да промените действието при изтичане на времето за достъп до трезора.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Изберете елемент, в който да запазите този секретен ключ</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Запазване на секретния ключ като нов елемент за вписване</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Запазване на секретния ключ</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Секретни ключове за {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Пароли за {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Да се замени ли секретният ключ?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Този елемент вече съдържа секретен ключ. Наистина ли искате да замените текущия секретен ключ?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Вашата регистрация изисква двустепенно удостоверяване чрез Duo. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Следвайте стъпките от Duo, за да завършите вписването.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Стартиране на Duo</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Изисква се потвърждение от {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Това действие изисква потвърждение. Настройте метод за отключване в Битуорден, за да продължите.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Грешка при създаването на секретен ключ</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Грешка при четенето на секретен ключ</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Възникна грешка при създаването на секретен ключ за {0}. Опитайте отново по-късно.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Възникна грешка при прочитането на секретния ключ за {0}. Опитайте отново по-късно.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Потвърждаване на самоличността…</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Пароли</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Неизвестна регистрация</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Настройте автоматичното попълване</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Незабавен достъп до паролите и секретните ключове!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>За да настроите автоматичното попълване на пароли и управлението на секретни ключове, задайте Битуорден като предпочитан доставчик за това в настройките на iOS.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Идете в Настройките на устройството &gt; Пароли &gt; Настройки за паролите</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Включете автоматичното попълване</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Изберете, че искате да използвате „Битуорден“ за пароли и секретни ключове</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Секретният ключ ще бъде запазен в трезора на Битуорден</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Секретният ключ ще бъде запазен в трезора на Битуорден за {0}</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Неразпределените елементи на организацията вече не се виждат в изгледа с „Всички трезори“, а са достъпни само през Административната конзола. Добавете тези елементи към някоя колекция в Административната конзола, за да станат видими.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>От 16 май 2024г. неразпределените елементи на организациите вече няма се виждат в изгледа с „Всички трезори“, а ще бъдат достъпни само през Административната конзола. Добавете тези елементи към някоя колекция в Административната конзола, за да станат видими.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Напомнете ми по-късно</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Известие</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>За това приложение не се поддържат секретни ключове</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Passkey operation failed because browser is not privileged</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Операцията със секретния ключ беше неуспешна, тъй като подписът в браузъра не съвпада</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Операцията със секретния ключ беше неуспешна, поради липсващи връзки към ресурси</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Операцията със секретния ключ беше неуспешна, тъй като приложението не е намерено измежду връзките към ресурси</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Операцията със секретния ключ беше неуспешна, тъй като приложението не може да бъде потвърдено</value>
   </data>
 </root>

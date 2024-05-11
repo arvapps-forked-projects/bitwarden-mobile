@@ -33,7 +33,7 @@ namespace Bit.App.Pages
             _keyConnectorService = ServiceContainer.Resolve<IKeyConnectorService>("keyConnectorService");
             _stateService = ServiceContainer.Resolve<IStateService>();
 
-            _groupingsPage = new NavigationPage(new GroupingsPage(true, previousPage: previousPage))
+            _groupingsPage = new NavigationPage(new GroupingsPage(true, previousPage: previousPage, appOptions: appOptions))
             {
                 Title = AppResources.MyVault,
                 IconImageSource = "lock.png"
@@ -96,6 +96,14 @@ namespace Bit.App.Pages
                     if (message.Command == "syncCompleted")
                     {
                         MainThread.BeginInvokeOnMainThread(async () => await UpdateVaultButtonTitleAsync());
+                        try
+                        {
+                            await ForcePasswordResetIfNeededAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.Value.Exception(ex);
+                        }
                     }
                 });
                 await UpdateVaultButtonTitleAsync();

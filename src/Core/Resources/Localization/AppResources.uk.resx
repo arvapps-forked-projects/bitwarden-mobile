@@ -421,6 +421,9 @@
   <data name="AutofillService" xml:space="preserve">
     <value>Служба автозаповнення</value>
   </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Зробіть Bitwarden своїм провайдером ключів доступу в налаштуваннях пристрою.</value>
+  </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Уникати неоднозначних символів</value>
   </data>
@@ -1191,6 +1194,9 @@
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
   </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Не вдалося автоматично відкрити меню налаштувань провайдера облікових даних Android. Ви можете власноруч відкрити меню в Налаштуваннях Android &gt; Система &gt; Паролі та облікові записи &gt; Паролі, ключі доступу і служби даних.</value>
+  </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Нам не вдалося автоматично відкрити меню налаштувань автозаповнення Android. Ви можете перейти до меню налаштувань автозаповнення вручну в Налаштування &gt; Система &gt; Мова і введення &gt; Додатково &gt; Служба автозаповнення.</value>
   </data>
@@ -1814,6 +1820,9 @@
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden потребує вашої уваги - Увімкніть "Накладання" в "Службах автозаповнення" в налаштуваннях Bitwarden</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Керування ключами доступу</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Служби автозаповнення</value>
@@ -2447,7 +2456,7 @@
     <value>Сталася невідома помилка {0}.</value>
   </data>
   <data name="PlusAddressedEmailDescription" xml:space="preserve">
-    <value>Використовуйте розширені можливості адрес вашого постачальника електронної пошти</value>
+    <value>Використовуйте розширені можливості адрес вашого провайдера електронної пошти</value>
   </data>
   <data name="CatchAllEmailDescription" xml:space="preserve">
     <value>Використовуйте свою скриньку вхідних Catch-All власного домену.</value>
@@ -2798,6 +2807,9 @@
   <data name="XHours" xml:space="preserve">
     <value>{0} годин</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Використовуйте Bitwarden для збереження нових ключів доступу та виконуйте вхід за допомогою збережених у сховищі ключів доступу.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Для автозаповнення даних входу в інших програмах на вашому пристрої використовується Android Autofill Framework.</value>
   </data>
@@ -2825,6 +2837,9 @@
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Продовжити в App Store?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Відкрити налаштування пристрою?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Додайте вищий рівень захисту облікового запису, налаштувавши двоетапну перевірку у вебпрограмі Bitwarden.</value>
@@ -2875,5 +2890,118 @@
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Налаштуйте спосіб розблокування, щоб змінити час очікування сховища.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Виберіть запис для збереження цього ключа доступу</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Зберегти ключ доступу як новий запис</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Зберегти ключ доступу</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>Ключі доступу для {0}</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>Паролі для {0}</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Перезаписати ключ доступу?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Цей елемент вже містить ключ доступу. Ви впевнені, що хочете перезаписати поточний ключ доступу?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Для вашого облікового запису необхідна двоетапна перевірка з Duo. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Виконайте дії з Duo для завершення входу.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Запустити Duo</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>Потрібне підтвердження {0}</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Для цієї дії потрібне підтвердження. Налаштуйте спосіб розблокування у Bitwarden, щоб продовжити.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Помилка створення ключа доступу</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Помилка читання ключа доступу</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Сталася помилка під час створення ключа доступу для {0}. Повторіть спробу пізніше.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>Виникла проблема під час читання ключа доступу для {0}. Повторіть спробу пізніше.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Перевірка даних...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Паролі</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Невідомий обліковий запис</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Налаштувати автозаповнення</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Отримайте миттєвий доступ до своїх паролів і ключів доступу!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>Щоб налаштувати автозаповнення паролів та керувати ключами доступу, зробіть Bitwarden своїм бажаним провайдером у параметрах iOS.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Відкрийте Параметри &gt; Паролі &gt; Параметри паролів</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Увімкніть автозаповнення</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Оберіть Bitwarden для паролів і ключів доступу</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Ваш ключ доступу буде збережено в сховищі Bitwarden</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Ваш ключ доступу буде збережено в сховищі Bitwarden для {0}</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Непризначені елементи організації більше не видимі у поданні "Усі сховища" і доступні лише в консолі адміністратора. Щоб зробити їх видимими, призначте ці елементи збірці в консолі адміністратора.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>16 травня 2024 року, непризначені елементи організації більше не будуть видимі в поданні "Усі сховища", і доступні лише через консоль адміністратора. Щоб зробити їх видимими, призначте ці елементи збірці в консолі адміністратора.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Нагадати пізніше</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Сповіщення</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Ця програма не підтримує ключі доступу</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Не вдалося виконати операцію з ключем доступу, оскільки браузер не має права доступу</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Не вдалося виконати операцію з ключем доступу, оскільки не збігається підпис браузера</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Не вдалося виконати операцію з ключем доступу, оскільки відсутні посилання на ресурси</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Не вдалося виконати операцію з ключем доступу, оскільки програму не знайдено в посиланнях на ресурси</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Не вдалося виконати операцію з ключем доступу, оскільки неможливо перевірити програму</value>
   </data>
 </root>

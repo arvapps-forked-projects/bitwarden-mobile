@@ -421,6 +421,9 @@
   <data name="AutofillService" xml:space="preserve">
     <value>Avto-doldurma xidməti</value>
   </data>
+  <data name="SetBitwardenAsPasskeyManagerDescription" xml:space="preserve">
+    <value>Cihaz ayarlarında "Bitwarden"i keçid açarı provayderiniz olaraq ayarlayın.</value>
+  </data>
   <data name="AvoidAmbiguousCharacters" xml:space="preserve">
     <value>Anlaşılmaz simvollardan çəkinin</value>
   </data>
@@ -480,7 +483,7 @@
     <value>Tətbiq uzantısını aktivləşdir</value>
   </data>
   <data name="ExtensionInSafari" xml:space="preserve">
-    <value>Safari-də paylaş nişanını istifadə edərək Bitwarden-i tapın (məsləhət: Menyunun ən alt sətrinin sağ hissəsinə baxın).</value>
+    <value>Safari-də paylaş ikonunu istifadə edərək Bitwarden-i tapın (ipucu: menyunun alt sətrində sağa sürüşdürün).</value>
     <comment>Safari is the name of apple's web browser</comment>
   </data>
   <data name="ExtensionInstantAccess" xml:space="preserve">
@@ -493,13 +496,13 @@
     <value>Giriş məlumatlarınıza artıq Safari, Chrome və digər dəstəklənən tətbiqlərdən asanlıqla müraciət edə bilərsiniz.</value>
   </data>
   <data name="ExtensionSetup2" xml:space="preserve">
-    <value>Safari və Chrome-da paylaş nişanını istifadə edərək Bitwarden-i tapın (məsləhət: Paylaş menyusunun ən alt sətrinin sağ hissəsinə baxın).</value>
+    <value>Safari və Chrome-da paylaş ikonunu istifadə edərək Bitwarden-i tapın (ipucu: paylaşma menyusunun alt sətrində sağa sürüşdürün).</value>
   </data>
   <data name="ExtensionTapIcon" xml:space="preserve">
-    <value>Uzantını başlatmaq üçün menyudakı Bitwarden nişanına toxunun.</value>
+    <value>Uzantını başlatmaq üçün menyudakı Bitwarden ikonuna toxunun.</value>
   </data>
   <data name="ExtensionTurnOn" xml:space="preserve">
-    <value>Safari və digər tətbiqlərdə Bitwarden-i işə salmaq üçün menyunun ən alt sətrindəki "daha çox" nişanına toxunun.</value>
+    <value>Safari və digər tətbiqlərdə Bitwarden-i işə salmaq üçün menyunun alt sətrindəki "daha çox" ikonuna toxunun.</value>
   </data>
   <data name="Favorite" xml:space="preserve">
     <value>Sevimli</value>
@@ -731,7 +734,7 @@
     <value>Uzantı aktivləşdirildi!</value>
   </data>
   <data name="Icons" xml:space="preserve">
-    <value>Nişanlar</value>
+    <value>İkonlar</value>
   </data>
   <data name="Translations" xml:space="preserve">
     <value>Tərcümələr</value>
@@ -1134,13 +1137,13 @@ Skan prosesi avtomatik baş tutacaq.</value>
     <value>Bitmə vaxtı</value>
   </data>
   <data name="ShowWebsiteIcons" xml:space="preserve">
-    <value>Veb sayt nişanlarını göstər</value>
+    <value>Veb sayt ikonlarını göstər</value>
   </data>
   <data name="ShowWebsiteIconsDescription" xml:space="preserve">
     <value>Hər girişin yanında tanına bilən təsvir göstər.</value>
   </data>
   <data name="IconsUrl" xml:space="preserve">
-    <value>Nişan server URL-si</value>
+    <value>İkon server URL-si</value>
   </data>
   <data name="AutofillWithBitwarden" xml:space="preserve">
     <value>Bitwarden ilə avto-doldurma</value>
@@ -1190,6 +1193,9 @@ Skan prosesi avtomatik baş tutacaq.</value>
   </data>
   <data name="WindowsHello" xml:space="preserve">
     <value>Windows Hello</value>
+  </data>
+  <data name="BitwardenCredentialProviderGoToSettings" xml:space="preserve">
+    <value>Android kimlik məlumatı provayder ayarları menyusunu sizin üçün avtomatik aça bilmədik. Bu menyunu tapmaq üçün Android Ayarları &gt; Sistem &gt; Parollar və hesablar &gt; Parollar, keçid açarları və data xidmətləri bölməsində tapa bilərsiniz.</value>
   </data>
   <data name="BitwardenAutofillGoToSettings" xml:space="preserve">
     <value>Android avto-doldurma ayarları menyusunu avtomatik aça bilmədik. Bu menyunu tapmaq üçün Android Ayarları &gt; Sistem &gt; Dillər və giriş &gt; Qabaqcıl &gt; "Avto-doldurma xidməti"nə gedin.</value>
@@ -1814,6 +1820,9 @@ Skan prosesi avtomatik baş tutacaq.</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
     <value>Bitwarden diqqətinizi tələb edir - Bitwarden Ayarlarında "Avto-doldurma xidməti"ndə "Üzərindən göstər"i işə salın</value>
+  </data>
+  <data name="PasskeyManagement" xml:space="preserve">
+    <value>Keçid açarının idarə edilməsi</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Avto-doldurma xidmətləri</value>
@@ -2797,6 +2806,9 @@ Bu hesaba keçmək istəyirsiniz?</value>
   <data name="XHours" xml:space="preserve">
     <value>{0} saat</value>
   </data>
+  <data name="PasskeyManagementExplanationLong" xml:space="preserve">
+    <value>Yeni keçid açarlarını saxlamaq və anbarınızda saxlanılan keçid açarları ilə giriş etmək üçün Bitwarden-i istifadə edin.</value>
+  </data>
   <data name="AutofillServicesExplanationLong" xml:space="preserve">
     <value>Android Avto-doldurma Çərçivəsi, giriş məlumatlarını cihazınızdakı digər tətbiqlərə doldurmağa kömək etmək üçün istifadə olunur.</value>
   </data>
@@ -2824,6 +2836,9 @@ Bu hesaba keçmək istəyirsiniz?</value>
   </data>
   <data name="ContinueToAppStore" xml:space="preserve">
     <value>Tətbiq mağazası ilə davam edilsin?</value>
+  </data>
+  <data name="ContinueToDeviceSettings" xml:space="preserve">
+    <value>Cihaz Ayarlarına davam edilsin?</value>
   </data>
   <data name="TwoStepLoginDescriptionLong" xml:space="preserve">
     <value>Bitwarden veb tətbiqində iki addımlı girişi quraraq hesabınızı daha güvənli edin.</value>
@@ -2874,5 +2889,118 @@ Bu hesaba keçmək istəyirsiniz?</value>
   </data>
   <data name="SetUpAnUnlockOptionToChangeYourVaultTimeoutAction" xml:space="preserve">
     <value>Anbar vaxt bitməsi əməliyyatınızı dəyişdirmək üçün bir kilid açma seçimi qurun.</value>
+  </data>
+  <data name="ChooseALoginToSaveThisPasskeyTo" xml:space="preserve">
+    <value>Bu keçid açarını saxlayacaq bir giriş seçin</value>
+  </data>
+  <data name="SavePasskeyAsNewLogin" xml:space="preserve">
+    <value>Keçid açarını yeni bir giriş olaraq saxla</value>
+  </data>
+  <data name="SavePasskey" xml:space="preserve">
+    <value>Keçid açarını saxla</value>
+  </data>
+  <data name="PasskeysForX" xml:space="preserve">
+    <value>{0} üçün keçid açarları</value>
+  </data>
+  <data name="PasswordsForX" xml:space="preserve">
+    <value>{0} parolları</value>
+  </data>
+  <data name="OverwritePasskey" xml:space="preserve">
+    <value>Keçid açarının üzərinə yazılsın?</value>
+  </data>
+  <data name="ThisItemAlreadyContainsAPasskeyAreYouSureYouWantToOverwriteTheCurrentPasskey" xml:space="preserve">
+    <value>Bu elementdə artıq bir keçid açarı var. Hazırkı keçid açarının üzərinə yazmaq istədiyinizə əminsiniz?</value>
+  </data>
+  <data name="DuoTwoStepLoginIsRequiredForYourAccount" xml:space="preserve">
+    <value>Hesabınız üçün Duo iki addımlı giriş tələb olunur. </value>
+  </data>
+  <data name="FollowTheStepsFromDuoToFinishLoggingIn" xml:space="preserve">
+    <value>Giriş etməni tamamlamaq üçün Duo-dakı addımları izləyin.</value>
+  </data>
+  <data name="LaunchDuo" xml:space="preserve">
+    <value>Duo-nu başlat</value>
+  </data>
+  <data name="VerificationRequiredByX" xml:space="preserve">
+    <value>{0} tərəfindən doğrulanma tələb olunur</value>
+  </data>
+  <data name="VerificationRequiredForThisActionSetUpAnUnlockMethodInBitwardenToContinue" xml:space="preserve">
+    <value>Bu əməliyyat üçün doğrulama tələb olunur. Davam etmək üçün "Bitwarden"də bir kilid açma üsulu qurun.</value>
+  </data>
+  <data name="ErrorCreatingPasskey" xml:space="preserve">
+    <value>Keçid açarını yaratma xətası</value>
+  </data>
+  <data name="ErrorReadingPasskey" xml:space="preserve">
+    <value>Keçid açarını oxuma xətası</value>
+  </data>
+  <data name="ThereWasAProblemCreatingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>{0} üçün keçid açarı yaradılarkən bir problem baş verdi. Daha sonra yenidən sınayın.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="ThereWasAProblemReadingAPasskeyForXTryAgainLater" xml:space="preserve">
+    <value>{0} üçün keçid açarınız oxunarkən bir problem baş verdi. Daha sonra yenidən sınayın.</value>
+    <comment>The parameter is the RpId</comment>
+  </data>
+  <data name="VerifyingIdentityEllipsis" xml:space="preserve">
+    <value>Kimlik doğrulanır...</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Parollar</value>
+  </data>
+  <data name="UnknownAccount" xml:space="preserve">
+    <value>Bilinməyən hesab</value>
+  </data>
+  <data name="SetUpAutofill" xml:space="preserve">
+    <value>Avto-doldurmanı qur</value>
+  </data>
+  <data name="GetInstantAccessToYourPasswordsAndPasskeys" xml:space="preserve">
+    <value>Parollarınıza və keçid açarlarınıza dərhal müraciət edin!</value>
+  </data>
+  <data name="SetUpAutoFillDescriptionLong" xml:space="preserve">
+    <value>Parolların avto-doldurulmasını və keçid açarlarının idarə edilməsini qurmaq üçün iOS Ayarlarında "Bitwarden"i tərcih edilən provayderiniz olaraq ayarlayın.</value>
+  </data>
+  <data name="FirstDotGoToYourDeviceSettingsPasswordsPasswordOptions" xml:space="preserve">
+    <value>1. Cihazda Ayarlar &gt; Parollar &gt; "Parol seçimləri"nə gedin</value>
+  </data>
+  <data name="SecondDotTurnOnAutoFill" xml:space="preserve">
+    <value>2. Avto-doldurmanı işə salın</value>
+  </data>
+  <data name="ThirdDotSelectBitwardenToUseForPasswordsAndPasskeys" xml:space="preserve">
+    <value>3. Parollar və keçid açarları üçün istifadə etmək məqsədilə "Bitwarden"i seçin</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVault" xml:space="preserve">
+    <value>Keçid açarınız Bitwarden anbarınızda saxlanılacaq</value>
+  </data>
+  <data name="YourPasskeyWillBeSavedToYourBitwardenVaultForX" xml:space="preserve">
+    <value>Keçid açarınız {0} üçün Bitwarden anbarınızda saxlanılacaq</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageUSEUDescriptionLong" xml:space="preserve">
+    <value>Təyin edilməmiş təşkilat elementləri artıq Bütün Anbarlar görünüşündə görünməyəndir və yalnız Admin Konsolu vasitəsilə əlçatandır. Bu elementləri görünən etmək üçün Admin Konsolundan bir kolleksiyaya təyin edin.</value>
+  </data>
+  <data name="OrganizationUnassignedItemsMessageSelfHost041624DescriptionLong" xml:space="preserve">
+    <value>16 May 2024-cü ildən etibarən təyin edilməmiş təşkilat elementləri artıq Bütün Anbarlar görünüşündə görünməyən və yalnız Admin Konsolu vasitəsilə əlçatan olacaq. Bu elementləri görünən etmək üçün Admin Konsolundan bir kolleksiyaya təyin edin.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Daha sonra xatırlat</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Xəbərdarlıq</value>
+  </data>
+  <data name="PasskeysNotSupportedForThisApp" xml:space="preserve">
+    <value>Keçid açarları bu tətbiq üçün dəstəklənmir</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserIsNotPrivileged" xml:space="preserve">
+    <value>Brauzer, imtiyazlı olmadığı üçün keçid açarı əməliyyatı uğursuz oldu</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseBrowserSignatureDoesNotMatch" xml:space="preserve">
+    <value>Brauzer imzası uyuşmadığı üçün keçid açarı əməliyyatı uğursuz oldu</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseOfMissingAssetLinks" xml:space="preserve">
+    <value>Əskik varlıq keçidlərinə görə keçid açarı əməliyyatı uğursuz oldu</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppNotFoundInAssetLinks" xml:space="preserve">
+    <value>Varlıq keçidlərində tətbiq tapılmadığına görə keçid açarı əməliyyatı uğursuz oldu</value>
+  </data>
+  <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
+    <value>Tətbiq doğrulana bilmədiyi üçün keçid açarı əməliyyatı uğursuz oldu</value>
   </data>
 </root>

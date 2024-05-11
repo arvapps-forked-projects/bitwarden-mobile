@@ -9,10 +9,12 @@ using Bit.Core;
 using Bit.Core.Abstractions;
 using Bit.Core.Enums;
 using Bit.Core.Models.Data;
+using Bit.Core.Models.Domain;
 using Bit.Core.Models.Response;
 using Bit.Core.Pages;
 using Bit.Core.Services;
 using Bit.Core.Utilities;
+using Bit.Core.Utilities.Fido2;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Bit.App
@@ -36,6 +38,9 @@ namespace Bit.App
         private readonly IPushNotificationService _pushNotificationService;
         private readonly IConfigService _configService;
         private readonly ILogger _logger;
+#if ANDROID
+        private LazyResolve<IFido2MakeCredentialConfirmationUserInterface> _fido2MakeCredentialConfirmationUserInterface = new LazyResolve<IFido2MakeCredentialConfirmationUserInterface>();
+#endif
 
         private static bool _isResumed;
         // these variables are static because the app is launching new activities on notification click, creating new instances of App. 
@@ -46,7 +51,6 @@ namespace Bit.App
         // This queue keeps those actions so that when the app has resumed they can still be executed.
         // Links: https://github.com/dotnet/maui/issues/11501 and https://bitwarden.atlassian.net/wiki/spaces/NMME/pages/664862722/MainPage+Assignments+not+working+on+Android+on+Background+or+App+resume
         private readonly Queue<Action> _onResumeActions = new Queue<Action>();
-        private bool _hasNavigatedToAutofillWindow;
 
 #if ANDROID
 
@@ -104,7 +108,10 @@ namespace Bit.App
                 Options.MyVaultTile = appOptions.MyVaultTile;
                 Options.GeneratorTile = appOptions.GeneratorTile;
                 Options.FromAutofillFramework = appOptions.FromAutofillFramework;
+                Options.FromFido2Framework = appOptions.FromFido2Framework;
+                Options.Fido2CredentialAction = appOptions.Fido2CredentialAction;
                 Options.CreateSend = appOptions.CreateSend;
+                Options.HasUnlockedInThisTransaction = appOptions.HasUnlockedInThisTransaction;
             }
         }
 
@@ -120,41 +127,17 @@ namespace Bit.App
                 return new Window(new NavigationPage()); //No actual page needed. Only used for auto-filling the fields directly (externally)
             }
 
-            //"Internal" Autofill and Uri/Otp/CreateSend. This is where we create the autofill specific Window
-            if (Options != null && (Options.FromAutofillFramework || Options.Uri != null || Options.OtpData != null || Options.CreateSend != null))
+            //When executing from CredentialProviderSelectionActivity we don't have "Options" so we need to filter "manually"
+            //In the CredentialProviderSelectionActivity we don't need to show any Page, so we just create a "dummy" Window with a NavigationPage to avoid crashing.
+            if (activationState != null 
+                && activationState.State.ContainsKey("CREDENTIAL_DATA") 
+                && activationState.State.ContainsKey("credentialProviderCipherId"))
             {
-                _isResumed = true; //Specifically for the Autofill scenario we need to manually set the _isResumed here
-                _hasNavigatedToAutofillWindow = true;
-                return new AutoFillWindow(new NavigationPage(new AndroidNavigationRedirectPage()));
+                return new Window(new NavigationPage()); //No actual page needed. Only used for auto-filling the fields directly (externally)
             }
 
-            var homePage = new HomePage(Options);
-            // WORKAROUND: If the user autofills with Accessibility Services enabled and goes back to the application then there is currently an issue
-            // where this method is called again
-            // thus it goes through here and the user goes to HomePage as we see here.
-            // So to solve this, the next flag check has been added which then turns on a flag on the home page
-            // that will trigger a navigation on the accounts manager when it loads; workarounding this behavior and navigating the user
-            // to the proper page depending on its state.
-            // WARNING: this doens't navigate the user to where they were but it acts as if the user had changed their account.
-            if(_hasNavigatedToAutofillWindow)
-            {
-                homePage.PerformNavigationOnAccountChangedOnLoad = true;
-                // this is needed because when coming back from AutofillWindow OnResume won't be called and we need this flag
-                // so that void Navigate(NavigationTarget navTarget, INavigationParams navParams) doesn't enqueue the navigation
-                // and it performs it directly.
-                _isResumed = true; 
-                _hasNavigatedToAutofillWindow = false;
-            }
-
-            //If we have an existing MainAppWindow we can use that one
-            var mainAppWindow = Windows.OfType<MainAppWindow>().FirstOrDefault();
-            if (mainAppWindow != null)
-            {
-                mainAppWindow.PendingPage = new NavigationPage(homePage);
-            }
-
-            //Create new main window
-            return new MainAppWindow(new NavigationPage(homePage));
+            _isResumed = true;
+            return new ResumeWindow(new NavigationPage(new AndroidNavigationRedirectPage(Options)));
         }
 #else
         //iOS doesn't use the CreateWindow override used in Android so we just set the Application.Current.MainPage directly
@@ -171,7 +154,7 @@ namespace Bit.App
                     Application.Current.MainPage = value;
                 }
             }
-        }   
+        }
 #endif
 
         public App() : this(null)
@@ -201,132 +184,182 @@ namespace Bit.App
 
             _accountsManager.Init(() => Options, this);
 
+            _broadcasterService.Subscribe(nameof(App), BroadcastServiceMessageCallbackAsync);
+
             Bootstrap();
-            _broadcasterService.Subscribe(nameof(App), async (message) =>
-            {
-                try
+        }
+
+        private async void BroadcastServiceMessageCallbackAsync(Message message)
+        {
+           try
+           {
+                ArgumentNullException.ThrowIfNull(message);
+                if (message.Command == "showDialog")
                 {
-                    if (message.Command == "showDialog")
+                    var details = message.Data as DialogDetails;
+                    ArgumentNullException.ThrowIfNull(details);
+                    
+                    var confirmed = true;
+                    var confirmText = string.IsNullOrWhiteSpace(details.ConfirmText) ?
+                        AppResources.Ok : details.ConfirmText;
+                    await MainThread.InvokeOnMainThreadAsync(ShowDialogAction);
+                    async Task ShowDialogAction()
                     {
-                        var details = message.Data as DialogDetails;
-                        var confirmed = true;
-                        var confirmText = string.IsNullOrWhiteSpace(details.ConfirmText) ?
-                            AppResources.Ok : details.ConfirmText;
-                        await MainThread.InvokeOnMainThreadAsync(async () =>
+                        if (!string.IsNullOrWhiteSpace(details.CancelText))
                         {
-                            if (!string.IsNullOrWhiteSpace(details.CancelText))
-                            {
-                                confirmed = await MainPage.DisplayAlert(details.Title, details.Text, confirmText,
-                                    details.CancelText);
-                            }
-                            else
-                            {
-                                await MainPage.DisplayAlert(details.Title, details.Text, confirmText);
-                            }
-                            _messagingService.Send("showDialogResolve", new Tuple<int, bool>(details.DialogId, confirmed));
-                        });
+                            ArgumentNullException.ThrowIfNull(MainPage);
+
+                            confirmed = await MainPage.DisplayAlert(details.Title, details.Text, confirmText,
+                                details.CancelText);
+                        }
+                        else
+                        {
+                            await _deviceActionService.DisplayAlertAsync(details.Title, details.Text, confirmText);
+                        }
+                        _messagingService.Send("showDialogResolve", new Tuple<int, bool>(details.DialogId, confirmed));
                     }
+                }
 #if IOS
-                    else if (message.Command == AppHelpers.RESUMED_MESSAGE_COMMAND)
+                else if (message.Command == AppHelpers.RESUMED_MESSAGE_COMMAND)
+                {
+                    ResumedAsync().FireAndForget();
+                }
+                else if (message.Command == "slept")
+                {
+                    await SleptAsync();
+                }
+#endif
+                else if (message.Command == "migrated")
+                {
+                    await Task.Delay(1000);
+                    await _accountsManager.NavigateOnAccountChangeAsync();
+                }
+                else if (message.Command == POP_ALL_AND_GO_TO_TAB_GENERATOR_MESSAGE ||
+                         message.Command == POP_ALL_AND_GO_TO_TAB_MYVAULT_MESSAGE ||
+                         message.Command == POP_ALL_AND_GO_TO_TAB_SEND_MESSAGE ||
+                         message.Command == POP_ALL_AND_GO_TO_AUTOFILL_CIPHERS_MESSAGE ||
+                         message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
+                {
+                    if (message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
                     {
-                        ResumedAsync().FireAndForget();
+                        Options.OtpData = new OtpData((string)message.Data);
                     }
-                    else if (message.Command == "slept")
+
+                    await MainThread.InvokeOnMainThreadAsync(ExecuteNavigationAction);
+                    async Task ExecuteNavigationAction()
                     {
-                        await SleptAsync();
+                        if (MainPage is TabsPage tabsPage)
+                        {
+                            ArgumentNullException.ThrowIfNull(tabsPage.Navigation);
+                            ArgumentNullException.ThrowIfNull(tabsPage.Navigation.ModalStack);
+                            while (tabsPage.Navigation.ModalStack.Count > 0)
+                            {
+                                await tabsPage.Navigation.PopModalAsync(false);
+                            }
+
+                            if (message.Command == POP_ALL_AND_GO_TO_AUTOFILL_CIPHERS_MESSAGE)
+                            {
+                                MainPage = new NavigationPage(new CipherSelectionPage(Options));
+                            }
+                            else if (message.Command == POP_ALL_AND_GO_TO_TAB_MYVAULT_MESSAGE)
+                            {
+                                Options.MyVaultTile = false;
+                                tabsPage.ResetToVaultPage();
+                            }
+                            else if (message.Command == POP_ALL_AND_GO_TO_TAB_GENERATOR_MESSAGE)
+                            {
+                                Options.GeneratorTile = false;
+                                tabsPage.ResetToGeneratorPage();
+                            }
+                            else if (message.Command == POP_ALL_AND_GO_TO_TAB_SEND_MESSAGE)
+                            {
+                                tabsPage.ResetToSendPage();
+                            }
+                            else if (message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
+                            {
+                                tabsPage.ResetToVaultPage();
+                                ArgumentNullException.ThrowIfNull(tabsPage.Navigation);
+                                await tabsPage.Navigation.PushModalAsync(new NavigationPage(new CipherSelectionPage(Options)));
+                            }
+                        }
+                    }
+                }
+                else if (message.Command == Constants.CredentialNavigateToAutofillCipherMessageCommand && message.Data is Fido2ConfirmNewCredentialParams createParams)
+                {
+                    ArgumentNullException.ThrowIfNull(MainPage);
+                    ArgumentNullException.ThrowIfNull(Options);
+                    await MainThread.InvokeOnMainThreadAsync(NavigateToCipherSelectionPageAction);
+                    void NavigateToCipherSelectionPageAction()
+                    {
+                        Options.Uri = createParams.RpId;
+                        Options.SaveUsername = createParams.UserName;
+                        Options.SaveName = createParams.CredentialName;
+                        MainPage = new NavigationPage(new CipherSelectionPage(Options));
+                    }
+                }
+                else if (message.Command == "convertAccountToKeyConnector")
+                {
+                    ArgumentNullException.ThrowIfNull(MainPage);
+                    await MainThread.InvokeOnMainThreadAsync(NavigateToRemoveMasterPasswordPageAction);
+                    async Task NavigateToRemoveMasterPasswordPageAction()
+                    {
+                        await MainPage.Navigation.PushModalAsync(
+                            new NavigationPage(new RemoveMasterPasswordPage()));
+                    }
+                }
+                else if (message.Command == Constants.ForceUpdatePassword)
+                {
+                    ArgumentNullException.ThrowIfNull(MainPage);
+                    await MainThread.InvokeOnMainThreadAsync(NavigateToUpdateTempPasswordPageAction);
+                    async Task NavigateToUpdateTempPasswordPageAction()
+                    {
+                        await MainPage.Navigation.PushModalAsync(
+                            new NavigationPage(new UpdateTempPasswordPage()));
+                    }
+                }
+                else if (message.Command == Constants.ForceSetPassword)
+                {
+                    ArgumentNullException.ThrowIfNull(MainPage);
+                    await MainThread.InvokeOnMainThreadAsync(NavigateToSetPasswordPageAction);
+                    void NavigateToSetPasswordPageAction()
+                    {
+                        MainPage.Navigation.PushModalAsync(
+                            new NavigationPage(new SetPasswordPage(orgIdentifier: (string)message.Data)));
+                    }
+                }
+                else if (message.Command == "syncCompleted")
+                {
+                    await _configService.GetAsync(true);
+                }
+                else if (message.Command == Constants.PasswordlessLoginRequestKey
+                    || message.Command == "unlocked"
+                    || message.Command == AccountsManagerMessageCommands.ACCOUNT_SWITCH_COMPLETED)
+                {
+#if ANDROID
+                    if (message.Command == AccountsManagerMessageCommands.ACCOUNT_SWITCH_COMPLETED && _fido2MakeCredentialConfirmationUserInterface.Value.IsConfirmingNewCredential)
+                    {
+                        _fido2MakeCredentialConfirmationUserInterface.Value.OnConfirmationException(new AccountSwitchedException());
                     }
 #endif
-                    else if (message.Command == "migrated")
-                    {
-                        await Task.Delay(1000);
-                        await _accountsManager.NavigateOnAccountChangeAsync();
-                    }
-                    else if (message.Command == POP_ALL_AND_GO_TO_TAB_GENERATOR_MESSAGE ||
-                        message.Command == POP_ALL_AND_GO_TO_TAB_MYVAULT_MESSAGE ||
-                        message.Command == POP_ALL_AND_GO_TO_TAB_SEND_MESSAGE ||
-                        message.Command == POP_ALL_AND_GO_TO_AUTOFILL_CIPHERS_MESSAGE ||
-                        message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
-                    {
-                        if (message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
-                        {
-                            Options.OtpData = new OtpData((string)message.Data);
-                        }
 
-                        await MainThread.InvokeOnMainThreadAsync(async () =>
-                        {
-                            if (MainPage is TabsPage tabsPage)
-                            {
-                                while (tabsPage.Navigation.ModalStack.Count > 0)
-                                {
-                                    await tabsPage.Navigation.PopModalAsync(false);
-                                }
-                                if (message.Command == POP_ALL_AND_GO_TO_AUTOFILL_CIPHERS_MESSAGE)
-                                {
-                                    MainPage = new NavigationPage(new CipherSelectionPage(Options));
-                                }
-                                else if (message.Command == POP_ALL_AND_GO_TO_TAB_MYVAULT_MESSAGE)
-                                {
-                                    Options.MyVaultTile = false;
-                                    tabsPage.ResetToVaultPage();
-                                }
-                                else if (message.Command == POP_ALL_AND_GO_TO_TAB_GENERATOR_MESSAGE)
-                                {
-                                    Options.GeneratorTile = false;
-                                    tabsPage.ResetToGeneratorPage();
-                                }
-                                else if (message.Command == POP_ALL_AND_GO_TO_TAB_SEND_MESSAGE)
-                                {
-                                    tabsPage.ResetToSendPage();
-                                }
-                                else if (message.Command == DeepLinkContext.NEW_OTP_MESSAGE)
-                                {
-                                    tabsPage.ResetToVaultPage();
-                                    await tabsPage.Navigation.PushModalAsync(new NavigationPage(new CipherSelectionPage(Options)));
-                                }
-                            }
-                        });
-                    }
-                    else if (message.Command == "convertAccountToKeyConnector")
+                    lock (_processingLoginRequestLock)
                     {
-                        await MainThread.InvokeOnMainThreadAsync(async () =>
-                        {
-                            await MainPage.Navigation.PushModalAsync(
-                                new NavigationPage(new RemoveMasterPasswordPage()));
-                        });
-                    }
-                    else if (message.Command == Constants.ForceUpdatePassword)
-                    {
-                        await MainThread.InvokeOnMainThreadAsync(async () =>
-                        {
-                            await MainPage.Navigation.PushModalAsync(
-                                new NavigationPage(new UpdateTempPasswordPage()));
-                        });
-                    }
-                    else if (message.Command == Constants.ForceSetPassword)
-                    {
-                        await MainThread.InvokeOnMainThreadAsync(() => MainPage.Navigation.PushModalAsync(
-                                new NavigationPage(new SetPasswordPage(orgIdentifier: (string)message.Data))));
-                    }
-                    else if (message.Command == "syncCompleted")
-                    {
-                        await _configService.GetAsync(true);
-                    }
-                    else if (message.Command == Constants.PasswordlessLoginRequestKey
-                        || message.Command == "unlocked"
-                        || message.Command == AccountsManagerMessageCommands.ACCOUNT_SWITCH_COMPLETED)
-                    {
-                        lock (_processingLoginRequestLock)
-                        {
-                            // lock doesn't allow for async execution
-                            CheckPasswordlessLoginRequestsAsync().Wait();
-                        }
+                        // lock doesn't allow for async execution
+                        CheckPasswordlessLoginRequestsAsync().Wait();
                     }
                 }
-                catch (Exception ex)
+                else if (message.Command == Constants.NavigateToMessageCommand && message.Data is NavigationTarget navigationTarget)
                 {
-                    LoggerHelper.LogEvenIfCantBeResolved(ex);
+                    await MainThread.InvokeOnMainThreadAsync(() =>
+                    {
+                        Navigate(navigationTarget, null);
+                    });
                 }
-            });
+           }
+           catch (Exception ex)
+           {
+               LoggerHelper.LogEvenIfCantBeResolved(ex);
+           }
         }
 
         private async Task CheckPasswordlessLoginRequestsAsync()
@@ -341,7 +374,6 @@ namespace Bit.App
             {
                 return;
             }
-
             var notification = await _stateService.GetPasswordlessLoginNotificationAsync();
             if (notification == null)
             {
@@ -693,6 +725,15 @@ namespace Bit.App
             // If we are in background we add the Navigation Actions to a queue to execute when the app resumes.
             // Links: https://github.com/dotnet/maui/issues/11501 and https://bitwarden.atlassian.net/wiki/spaces/NMME/pages/664862722/MainPage+Assignments+not+working+on+Android+on+Background+or+App+resume
 #if ANDROID
+            if (_fido2MakeCredentialConfirmationUserInterface != null && _fido2MakeCredentialConfirmationUserInterface.Value.IsConfirmingNewCredential)
+            {
+                // if it's creating passkey
+                // and we have an active pending TaskCompletionSource
+                // then we let the Fido2 Authenticator flow manage the navigation to avoid issues
+                // like duplicated navigation to lock page.
+                return;
+            }
+
             if (!_isResumed)
             {
                 _onResumeActions.Enqueue(() => NavigateImpl(navTarget, navParams));
